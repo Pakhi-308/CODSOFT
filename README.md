@@ -1,0 +1,1 @@
+Welcome to my CodSoft internship repository! This repository showcases the projects and tasks I have completed during my 4-week Java programming internship with CodSoft, from September 15, 2024, to October 15, 2024.
