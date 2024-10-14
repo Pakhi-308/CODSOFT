@@ -1,0 +1,71 @@
+import java.util.*;
+
+class ATM_Machine{
+    int Pin=1234;
+    float balance=0;
+    Scanner sc= new Scanner(System.in);
+    public void check_pin(){
+    System.out.print("Enter your pin= ");
+    int your_pin= sc.nextInt();
+
+   while(your_pin!=Pin){
+       System.out.print("Enter a valid pin= ");
+       your_pin= sc.nextInt();
+   }
+        menu();
+    }
+
+    public void menu(){
+        System.out.println("Choose any one option: ");
+        System.out.println("1. Check balance");
+        System.out.println("2. Withdraw money");
+        System.out.println("3. Deposit money");
+        System.out.println("4. Exit");
+
+        int option= sc.nextInt();
+        if(option==1){
+            checkbalance();
+        }
+        else if(option==2){
+            withdrawmoney();
+        }
+        else if(option==3){
+            depositmoney();
+        }
+        else{
+            return;
+        }
+    }
+
+    public void checkbalance(){
+        System.out.println("Balance amount= "+balance);
+        menu();
+    }
+    public void withdrawmoney(){
+        System.out.print("Enter amount to be withdrawn= ");
+        float withdraw= sc.nextFloat();
+        if(withdraw>balance){
+            System.out.println("Insufficient balance.");
+            menu();
+        }
+        else{
+        balance=balance-withdraw;
+        System.out.println("Amount withdrawn successfully.");
+        menu();
+        }
+    }
+    public void depositmoney(){
+        System.out.print("Enter amount to be deposited= ");
+        float deposit=sc.nextFloat();
+        balance=balance+deposit;
+        System.out.println("Amount Deposited successfully");
+        menu();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ATM_Machine obj= new ATM_Machine();
+        obj.check_pin();
+        }
+    }
